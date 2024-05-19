@@ -11,21 +11,7 @@ Ensure you have the following packages installed in your environment:
 - [loguru](https://loguru.readthedocs.io/)
 
 ## Installation
-
-You can install the required packages using your preferred virtual environment manager:
-
-### Option 1: Virtual Environment
-
-```bash
-# Create and activate a virtual environment
-python -m venv venv
-source venv/bin/activate
-```
-
-# Install required packages
-After you install you can run calling file ```tasks.py``` at the root of the project. 
-
-### Option 2: Pipenv
+You need to have pipenv in your environment.
 Using pipenv in a root of the project:
 
 ```
