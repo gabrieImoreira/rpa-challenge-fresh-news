@@ -24,6 +24,6 @@ After you install you can run calling file ```pipenv run robot``` at the root of
 The extracted data will be stored in the ./output/results folder as an Excel file.
 
 ## Notes
-
-Ensure that you have a stable internet connection before running the automation to ensure proper data extraction from the LA Times website.
-Feel free to explore and customize the automation process according to your requirements!
+ - This code follows good programming practices by using Object-Oriented Programming (OOP) and following PEP8 guidelines for code style.. It includes logging through decorators to track activities, and each function is thoroughly documented.
+ - Ensure that you have a stable internet connection before running the automation to ensure proper data extraction from the LA Times website.
+- Feel free to explore and customize the automation process according to your requirements!
