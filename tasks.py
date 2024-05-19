@@ -11,7 +11,6 @@ import json
     # number_of_months = wi.get_work_item_variable("number_of_months")
 if __name__ == '__main__':
 
-
     with open("setup.json", "r") as file:
         setup = json.load(file)
         search_phrase = setup["search_phrase"]
