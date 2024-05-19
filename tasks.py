@@ -19,3 +19,4 @@ if __name__ == '__main__':
 
     with LATimesCrawler() as crawler:  
         crawler.main(search_phrase, category, number_of_months)
+        # its possible to run more phrases with the same object, just call the main function again
