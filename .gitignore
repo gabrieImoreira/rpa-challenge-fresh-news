@@ -15,4 +15,4 @@ temp/
 testrun/*
 .~lock*
 *.pkl
-Pipfile*
+Pipfile.lock

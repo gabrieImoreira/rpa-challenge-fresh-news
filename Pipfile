@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+rpaframework = "*"
+pandas = "*"
+loguru = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+
+[scripts]
+robot = "pipenv run python task.py"
