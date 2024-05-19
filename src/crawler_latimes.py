@@ -14,9 +14,9 @@ import re
 class LATimesCrawler:
     """Class for crawling LATimes website and retrieving news."""
     def __init__(self):
-        self.url = os.getenv('LATIMES_URL')
-        self.results_path = os.getenv('RESULTS_PATH')
-        self.output_path = os.getenv('OUTPUT_PATH')
+        self.url = 'https://www.latimes.com/'
+        self.results_path = 'output/results'
+        self.output_path = 'output'
         self.browser = None
         self.retries = 3
     
@@ -109,7 +109,7 @@ class LATimesCrawler:
         try:
             self.browser.go_to(self.url)
         except:
-            self.browser = GenericBrowser()
+            self.browser = GenericBrowser(headless=False)
             self.browser = self.browser.open_default_browser(self.url)
 
     @log_decorator

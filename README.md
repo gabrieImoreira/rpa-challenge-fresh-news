@@ -1,7 +1,7 @@
 # RPA Challenge 2.0 - Fresh News
 
-The challenge consist in automate the process of extracting data from a news site >>> https://www.latimes.com/.
-The output will be a folder in a ./ouput/results contains a excel results.
+The challenge is to automate the data extraction process from a news website >>> https://www.latimes.com/.
+The output will be a folder in ./ouput/results that contains excel results and news images.
 
 ## Prerequisites
 

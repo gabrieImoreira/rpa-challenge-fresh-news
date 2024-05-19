@@ -41,7 +41,7 @@ def download_image(url: str, output_path: str) -> str:
     
     return f"{output_path}/{image_name}.jpg"
 
-def get_month_range(number_of_months: int) -> datetime:
+def get_month_range(number_of_months: int) -> datetime.datetime:
     """Get the start date of a range of months before the current date.
 
     Args:
@@ -50,7 +50,7 @@ def get_month_range(number_of_months: int) -> datetime:
     Returns:
     - datetime.datetime: Start date of the range.
     """
-    today = datetime.now()
+    today = datetime.datetime.now()
     if number_of_months < 2:
         end_date = today.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
     else:
