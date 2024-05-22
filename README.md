@@ -17,7 +17,6 @@ Ensure you have the following packages installed in your environment:
 - [loguru](https://loguru.readthedocs.io/)
 
 ## Installation
-This setup and code was configured to run in robocloud (that's why the workitem), to run in your terminal and through pipenv, use the "develop" branch.
 
 You need to have pipenv in your environment.
 Using pipenv in a root of the project:
