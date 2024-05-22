@@ -15,12 +15,11 @@ class LATimesCrawler:
     """Class for crawling LATimes website and retrieving news."""
     def __init__(self):
         self.url = 'https://www.latimes.com/'
-        self.results_path = 'output/results'
         self.output_path = 'output'
         self.browser = None
         self.retries = 3
     
-        utils.clear_and_create_directory(self.results_path)
+        utils.clear_and_create_directory(self.output_path)
     
     def __enter__(self):
         """Initialize LATimesCrawler."""
@@ -154,7 +153,7 @@ class LATimesCrawler:
                 description = self.browser.get_text(selectors.menu_search_results_description.format(count=i))
                 self.browser.wait_until_element_is_visible(selectors.menu_search_results_img.format(count=i), timeout=30)
                 img_url = self.browser.get_element_attribute(selectors.menu_search_results_img.format(count=i), "src")
-                results_path = utils.download_image(img_url, self.results_path)
+                results_path = utils.download_image(img_url, self.output_path)
                 
                 date = parser.parse(date, fuzzy=True)
                 # checking if the date is within the range
@@ -192,7 +191,7 @@ class LATimesCrawler:
             sanitized = sanitized[:100]
         current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
         df = pd.DataFrame(list_news)
-        df.to_excel(os.path.join(self.results_path, f'Results_LATimes_{search_phrase}_{current_time}.xlsx'), index=False)
+        df.to_excel(os.path.join(self.output_path, f'Results_LATimes_{search_phrase}_{current_time}.xlsx'), index=False)
 
         return True
 
