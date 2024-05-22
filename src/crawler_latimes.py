@@ -168,6 +168,7 @@ class LATimesCrawler:
                     "qty_phrases": utils.count_phrases(search_phrase, title, description),
                     "contains_money": utils.contains_money(title, description)
                 })
+            # the site limit
             if j == 10:
                 break
             self.browser.click_element(selectors.btn_next_page)
