@@ -1,4 +1,4 @@
-from src.crawler_latimes import  LATimesCrawler
+from src.crawler_latimes import LATimesCrawler
 import json
 
 if __name__ == '__main__':
