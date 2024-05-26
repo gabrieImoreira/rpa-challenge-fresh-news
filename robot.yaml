@@ -1,5 +1,5 @@
 tasks:
-  Run Python:
+  Run Task:
     shell: python tasks.py
 
 environmentConfigs:
