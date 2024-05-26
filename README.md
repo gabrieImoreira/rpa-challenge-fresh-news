@@ -14,7 +14,6 @@ The output will be a folder in ./ouput/results that contains excel results and n
 Ensure you have the following packages installed in your environment:
 - [rpaframework](https://rpaframework.org/)
 - [pandas](https://pandas.pydata.org/)
-- [loguru](https://loguru.readthedocs.io/)
 
 ## Installation
 
