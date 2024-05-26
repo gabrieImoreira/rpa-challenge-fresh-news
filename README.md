@@ -13,7 +13,7 @@ The output will be a folder in ./ouput/results that contains excel results and n
 
 Ensure you have the following packages installed in your environment:
 - [rpaframework](https://rpaframework.org/)
-- 
+
 ## Installation
 This setup and code was configured to run in robocloud (that's why the workitem), to run in your terminal and through pipenv, use the "develop" branch.
 
