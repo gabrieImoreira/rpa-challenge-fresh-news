@@ -7,6 +7,4 @@ dependencies:
 
   - pip=22.3                 # https://pip.pypa.io/en/stable/news/
   - pip:
-      - pandas
-      - loguru
       - rpaframework==23.0.0

@@ -1,16 +1,19 @@
 import traceback
 from functools import wraps
 from sys import stderr
-from loguru import logger
+import logging
 from datetime import datetime
 
 current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-logger.add(
-    f"output/log_{current_time}.log",
-    format="{time:YYYY-MM-DD HH:mm:ss} {level} {message} {file}",
-    level="INFO"
+logging.basicConfig(
+    filename=f"output/log_{current_time}.log",
+    filemode='a',
+    format='%(asctime)s %(levelname)s %(message)s %(filename)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO
 )
+
+logger = logging.getLogger(__name__)
 
 def log_decorator(func):
     """Decorator function to log function calls and exceptions."""

@@ -3,9 +3,9 @@ from src.resources import selectors_latimes as selectors
 from datetime import datetime, timedelta
 from src.log import log_decorator
 from dateutil import parser
-from loguru import logger
+from RPA.Excel.Files import Files
+import logging as logger
 from src import utils
-import pandas as pd
 import traceback
 import time
 import os
@@ -90,7 +90,7 @@ class LATimesCrawler:
         # Filter by topic
         self.browser.wait_for_condition('return document.readyState == "complete"', timeout=30)
         topic_exist = self.browser.get_element_count(selectors.input_topic.format(topic=topic))
-        if topic_exist == 0:
+        if topic_exist  < 1:
             logger.info(f"Topic {topic} not found")
         else:
             self.browser.wait_until_element_is_enabled(selectors.input_topic.format(topic=topic), timeout=30)
@@ -168,7 +168,6 @@ class LATimesCrawler:
                     "qty_phrases": utils.count_phrases(search_phrase, title, description),
                     "contains_money": utils.contains_money(title, description)
                 })
-            # the site limit
             if j == 10:
                 break
             self.browser.click_element(selectors.btn_next_page)
@@ -191,8 +190,11 @@ class LATimesCrawler:
         if len(sanitized) > 100:
             sanitized = sanitized[:100]
         current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-        df = pd.DataFrame(list_news)
-        df.to_excel(os.path.join(self.output_path, f'Results_LATimes_{search_phrase}_{current_time}.xlsx'), index=False)
+
+        excel = Files()
+        excel.create_workbook()
+        excel.append_rows_to_worksheet(list_news, header=True)
+        excel.save_workbook(os.path.join(self.output_path, f'Results_LATimes_{search_phrase}_{current_time}.xlsx'))
 
         return True
 

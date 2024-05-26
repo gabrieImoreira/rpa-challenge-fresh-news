@@ -5,8 +5,11 @@ import uuid
 import os
 import re
 
+import os
+import shutil
+
 def clear_and_create_directory(directory_path: str) -> bool:
-    """Clears and creates a directory.
+    """Clears and creates a directory, ignoring .log files.
 
     Args:
     - directory_path (str): Path of the directory to be created.
@@ -16,14 +19,22 @@ def clear_and_create_directory(directory_path: str) -> bool:
     """
     # Check if the directory already exists
     if os.path.exists(directory_path):
-        # Clear the directory content
-        shutil.rmtree(directory_path)
-    
-    # Create the directory
-    os.makedirs(directory_path)
+        # Iterate over all the files and directories in the given directory
+        for item in os.listdir(directory_path):
+            item_path = os.path.join(directory_path, item)
+            # Check if the item is a .log file
+            if os.path.isfile(item_path) and item.endswith('.log'):
+                continue
+            # Remove the directory or file
+            elif os.path.isdir(item_path):
+                shutil.rmtree(item_path)
+            else:
+                os.remove(item_path)
+    else:
+        # Create the directory
+        os.makedirs(directory_path)
 
     return True
-
 
 def download_image(url: str, output_path: str) -> str:
     """Downloads an image from a URL to the specified output path.
