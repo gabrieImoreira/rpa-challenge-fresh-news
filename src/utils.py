@@ -5,9 +5,6 @@ import uuid
 import os
 import re
 
-import os
-import shutil
-
 def clear_and_create_directory(directory_path: str) -> bool:
     """Clears and creates a directory, ignoring .log files.
 
