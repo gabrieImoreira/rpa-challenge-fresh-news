@@ -17,14 +17,6 @@ Ensure you have the following packages installed in your environment:
 ## Installation
 This setup and code was configured to run in robocloud (that's why the workitem), to run in your terminal and through pipenv, use the "develop" branch.
 
-You need to have pipenv in your environment.
-Using pipenv in a root of the project:
-
-```
-pipenv install
-```
-After you install you can run calling file ```pipenv run robot``` at the root of the project. 
-
 ## Output
 
 The extracted data will be stored in the ./output/results folder as an Excel file.
