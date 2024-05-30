@@ -1,6 +1,5 @@
 import traceback
 from functools import wraps
-from sys import stderr
 import logging
 from datetime import datetime
 
@@ -14,6 +13,12 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+stream_handler = logging.StreamHandler()
+stream_handler.setLevel(logging.INFO)
+stream_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s %(filename)s'))
+
+logger.addHandler(stream_handler)
 
 def log_decorator(func):
     """Decorator function to log function calls and exceptions."""
